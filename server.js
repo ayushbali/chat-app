@@ -7,6 +7,8 @@ const io = require('socket.io')(http);
 const mongoose = require('mongoose');
 const dbURL = 'mongodb+srv://user:1234@chatapp.qabde.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
+const port = Process.env.PORT || 3000;
+
 // require('./database')
 
 
@@ -50,6 +52,6 @@ mongoose.connect(dbURL, (err)=>{
     console.log('connection mongoDB' , err)
 });
 
-const server = http.listen(3000, ()=>{
+const server = http.listen(port, ()=>{
     console.log(`The server is running ${server.address().port}`);
 });
